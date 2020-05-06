@@ -308,11 +308,14 @@ const listItems = numbers.map((number) =>
 
 ## 设置状态：setState
 this.setState作用?
-在react中要修改this.state要使用this.setState,
-因为this.state只是一个对象,
-单纯的修改state并不会触发ui更新.
 
-所以我们需要用this.setState来修改,this.setState在修改state的同时,可以触发组件的更新,因为this.setState会调用render函数
+在react中要修改this.state要使用this.setState,
+
+因为this.state只是一个对象, 单纯的修改state并不会触发ui更新.
+
+所以我们需要用this.setState来修改,
+
+this.setState在修改state的同时,可以触发组件的更新,因为this.setState会调用render函数
 
 
 # 十一. React 组件生命周期
@@ -320,7 +323,9 @@ this.setState作用?
 ## 组件的生命周期可分成三个状态：
 
 Mounting：已插入真实 DOM  （挂载时 2个）
+
 Updating：正在被重新渲染   （更新时 4个）
+
 Unmounting：已移出真实 DOM（卸载时 1个）
 
 ## 生命周期的方法有
