@@ -46,7 +46,7 @@ JSX 是在 JavaScript 内部实现的。
 
 # 四. React 组件
 ## 定义组件
-### 1. 我们可以使用函数定义了一个组件
+### 1. 我们可以使用函数定义一个组件
 ```
 function HelloMessage(props) {
     return <h1>Hello World!</h1>;
@@ -86,14 +86,22 @@ ReactDOM.render(
 # 五. React State(状态)
 添加一个类构造函数来初始化状态 this.state，类组件应始终使用 props 调用基础构造函数。
 
+```
+constructor() {
+        super();
+        this.state = {
+            date: new Date()
+        }
+    }
+```
 
-# 六. React Props
+# 六. React props
 state 和 props 主要的区别在于 props 是不可变的，而 state 可以根据与用户交互来改变。
 这就是为什么有些容器组件需要定义 state 来更新和修改数据。 
 
 **而子组件只能通过 props 来传递数据**
 
-## 默认 Props
+## 默认 props
 可以通过组件类的 defaultProps 属性为 props 设置默认值，
 ```
 class HelloMessage extends React.Component {
@@ -116,7 +124,7 @@ ReactDOM.render(
 );
 ```
 
-## State 和 Props
+## state 和 props
 如何在应用中组合使用 state 和 props 。
 我们可以在父组件中设置 state， 并通过在子组件上使用 props 将其传递到子组件上。
 在 render 函数中, 我们设置 name 和 site 来获取父组件传递过来的数据。
@@ -303,6 +311,7 @@ this.setState作用?
 在react中要修改this.state要使用this.setState,
 因为this.state只是一个对象,
 单纯的修改state并不会触发ui更新.
+
 所以我们需要用this.setState来修改,this.setState在修改state的同时,可以触发组件的更新,因为this.setState会调用render函数
 
 
@@ -310,9 +319,9 @@ this.setState作用?
 
 ## 组件的生命周期可分成三个状态：
 
-Mounting：已插入真实 DOM
-Updating：正在被重新渲染
-Unmounting：已移出真实 DOM
+Mounting：已插入真实 DOM  （挂载时 2个）
+Updating：正在被重新渲染   （更新时 4个）
+Unmounting：已移出真实 DOM（卸载时 1个）
 
 ## 生命周期的方法有
 
@@ -383,7 +392,7 @@ ReactDOM.render(
 在React中，可变的状态通常保存在组件的状态属性中，并且只能用 setState() 方法进行更新。
 ```
 
-## onChxange: 
+## onChange: 
 可以使用 onChange 事件来监听 input 的变化
 
 ## onClick
