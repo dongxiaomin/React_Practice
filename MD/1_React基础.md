@@ -1,16 +1,22 @@
-## 关于虚拟DOM
+视频: https://www.bilibili.com/video/BV1wy4y1D7JT?p=32&spm_id_from=pageDriver&vd_source=14fedc3c63ed079cd9eb76b1b47d1f84
+
+资料:
+https://docs.qq.com/doc/DSG1jdUJtQ3FYR1V1
+https://docs.qq.com/doc/DSGhGZk9PUm1KVldv
+
+## 一. 关于虚拟DOM
 1. 本质是Object类型的对象（一般对象）
 2. 虚拟DOM比较“轻”，真实DOM比较“重”，因为虚拟DOM是React内部在用，无需真实DOM上那么多的属性。
 3. 虚拟DOM最终会被React转化为真实DOM，呈现在页面上。
 
-## react特点
+## 二. React特点
 使用虚拟 DOM 而不是真正的 DOM
 可以用服务器渲染
 遵循单向数据流或数据绑定
 高效
 声明式编码，组件化编码
 
-## jsx语法规则：
+## 三. jsx语法规则：
 1. 定义虚拟DOM时，不要写引号.
 2. 标签中混入JS表达式时要用{}.
 3. 样式的类名指定不要用class，要用className.
@@ -21,7 +27,7 @@
 (1). 若小写字母开头，则将该标签转为html中同名元素，若html中无该标签对应的同名元素，则报错。
 (2). 若大写字母开头，react就去渲染对应的组件，若组件没有定义，则报错。
 
-## 【js语句(代码)】与【js表达式】
+## 四. 【js语句(代码)】与【js表达式】
 1.表达式：一个表达式会产生一个值，可以放在任何一个需要值的地方
 下面这些都是表达式：
 (1) a
@@ -35,19 +41,19 @@
 (2) for(){}
 (3) switch(){case:xxxx}
 
-## 模块化
+## 五. 模块化
 向外提供特定功能的js程序, 一般就是一个js文件
 * 例: 一个公共方法
 
-## 组件化
+## 六. 组件化
 用来实现局部功能效果的代码和资源的集合(html js image)
 * 例: 一个功能组件
 
-## 函数式组件
+## 七. 函数式组件
 1. React解析组件标签，找到了< />组件。
 2. 发现组件是使用函数定义的，随后调用该函数，将返回的虚拟DOM转为真实DOM，随后呈现在页面中。
 
-## 类组件
+## 八. 类组件
 ```
 // 创建一个person类
 class Person {
@@ -93,7 +99,7 @@ console.log(s2); // Student {name: 'd', age: 12, grade: '二'}
 2. 如果 student 类继承了 person 类, 且 student 中写了构造器, 那 student 类构造器中的super 必须调用.
 3. 类所定义的方法,都是放在了类的原型对象上, 供实例使用.
 
-## 类式组件
+## 九. 类式组件
 1. 创建类式组件
 ```
 class MyComponent extends React.Component{
@@ -114,7 +120,7 @@ ReactDOM.render(<MyComponent/>,document.getElementById('test'))
 2. 发现组件是使用类定义的，随后new出来该类的实例，并通过该实例调用到原型上的render方法。
 3. 将render返回的虚拟DOM转为真实DOM，随后呈现在页面中。 -->
 
-## 类式组件三大核心
+## 十. 类式组件三大核心
 ### 1. 核心属性state
 React 把组件看成是一个状态机（State Machines）。通过与用户的交互，实现不同状态，然后渲染 UI，让用户界面和数据保持一致。
 
@@ -162,7 +168,7 @@ console.log(this);
 ```
 
 **注意**:
-1. 每个class都由constructor方法,当class代码中没有显示声明constructor构造函数时,class会自动隐式添加该方法
+1. 每个class都有constructor方法,当class代码中没有显示声明constructor构造函数时,class会自动隐式添加该方法
 2. 使用class继承的类, 在其constructor构造函数中必须首先调用构造函数自带的`super`方法, 在继承的父类中完成this对象的塑造并继承父类的属性方法.
 如果不调用该方法子类3将没有this对象
 3. 如果你的react class组件内部不需要创建state 绑定方法或者任何在constructor构造函数中要执行的代码推荐隐式创建constructor
@@ -180,7 +186,7 @@ onClick={this.changeWeather}
 ### 解决类中this指向
 
 构造器中的this一定是类的实例对象,原型方法也一定是给实例调用的
-实例调用方法那么方法中的this就是实例,类中方法都开启了局部严格模式所以this都是undefine
+实例调用方法, 那么方法中的this就是实例, 类中方法都开启了局部严格模式所以this都是undefine
 
 注意: 构造函数bind做了什么？
 ```
@@ -191,7 +197,7 @@ bind: 做了两件事情
 * 生成新的函数并且改变this为Weather的实例对象
 * this.changeWeather是原型上的方法，通过bind改变this之后生成新的方法放在了实例自身上，导致了实例中也有changeWeather这个方法，这样就能进行调用了。
 
-## 如果state有多个, 如何优化: 使用展开运算符..., , 
+## 如果state有多个, 如何优化: 使用展开运算符...
 ```
 let arr1 = [1, 3, 5, 7, 9]
 let arr2 = [2, 4, 6, 8, 10]
